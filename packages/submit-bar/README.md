@@ -2,9 +2,18 @@
 
 ### 使用指南
 在 app.json 或 index.json 中引入组件
+
+es6
 ```json
 "usingComponents": {
   "van-submit-bar": "path/to/vant-weapp/dist/submit-bar/index"
+}
+```
+
+es5
+```json
+"usingComponents": {
+  "van-submit-bar": "path/to/vant-weapp/lib/submit-bar/index"
 }
 ```
 
@@ -29,6 +38,7 @@
   price="{{ 3050 }}"
   button-text="提交订单"
   tip="您的收货地址不支持同城送, 我们已为您推荐快递"
+  tip-icon="https://img.yzcdn.cn/1.png"
   bind:submit="onSubmit"
 />
 ```
@@ -71,10 +81,12 @@
 | button-text | 按钮文字 | `String` | - |
 | button-type | 按钮类型 |  `String` | `danger` |
 | tip | 提示文案 |  `String` / `Boolean` | - |
+| tip-icon | 图标名称或图片链接，可选值见 Icon 组件 | `String` | - |
 | disabled | 是否禁用按钮 |  `Boolean` | `false` |
 | loading | 是否显示加载中的按钮 |  `Boolean` | `false` |
 | currency | 货币符号 |  `String` | `¥` |
-| safe-area-inset-bottom | 是否为iPhoneX留出底部安全距离 | `Boolean` | `true` |
+| safe-area-inset-bottom | 是否为 iPhoneX 留出底部安全距离 | `Boolean` | `true` |
+| decimal-length | 价格小数点后位数 | `Number` | `2` |
 
 ### Event
 

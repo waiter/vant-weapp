@@ -2,9 +2,18 @@
 
 ### 使用指南
 在 app.json 或 index.json 中引入组件
+
+es6
 ```json
 "usingComponents": {
   "van-rate": "path/to/vant-weapp/dist/rate/index"
+}
+```
+
+es5
+```json
+"usingComponents": {
+  "van-rate": "path/to/vant-weapp/lib/rate/index"
 }
 ```
 
@@ -47,9 +56,32 @@ Page({
 <van-rate
   value="{{ value }}"
   size="{{ 25 }}"
+  color="#f44"
+  void-color="#eee"
+  void-icon="star"
+  bind:change="onChange"
+/>
+```
+
+#### 半星
+```html
+<van-rate
+  value="{{ value }}"
+  size="{{ 25 }}"
+  allow-half
+  color="#f44"
+  void-color="#eee"
+  void-icon="star"
+  bind:change="onChange"
+/>
+```
+
+#### 自定义数量
+
+```html
+<van-rate
+  value="{{ value }}"
   count="{{ 6 }}"
-  color="#07c160"
-  void-color="#ceefe8"
   bind:change="onChange"
 />
 ```
@@ -59,6 +91,16 @@ Page({
 ```html
 <van-rate
   disabled
+  value="{{ value }}"
+  bind:change="onChange"
+/>
+```
+
+#### 只读状态
+
+```html
+<van-rate
+  readonly
   value="{{ value }}"
   bind:change="onChange"
 />
@@ -76,6 +118,7 @@ Page({
 | void-color | 未选中时的颜色 | `String` | `#c7c7c7` |
 | icon | 选中时的图标名称或图片链接，可选值见 Icon 组件 | `String` | `star` |
 | void-icon | 未选中时的图标名称或图片链接，可选值见 Icon 组件 | `String` | `star-o` |
+| allow-half | 是否允许半选 | `Boolean` | `false` |
 | readonly | 是否为只读状态 | `Boolean` | `false` |
 | disabled | 是否禁用评分 | `Boolean` | `false` |
 | disabled-color | 禁用时的颜色 | `String` | `#bdbdbd` |
@@ -92,10 +135,3 @@ Page({
 |-----------|-----------|
 | custom-class | 根节点样式类 |
 | icon-class | 图标样式类 |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 0.4.7 | feature | 新增组件 |
-| 0.4.9 | feature | 增加 icon-class 外部样式类 |

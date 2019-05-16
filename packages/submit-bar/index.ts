@@ -12,6 +12,7 @@ VantComponent({
 
   props: {
     tip: null,
+    tipIcon: String,
     type: Number,
     price: null,
     label: String,
@@ -25,6 +26,10 @@ VantComponent({
     buttonType: {
       type: String,
       value: 'danger'
+    },
+    decimalLength: {
+      type: Number,
+      value: 2
     }
   },
 
@@ -34,7 +39,7 @@ VantComponent({
     },
 
     priceStr() {
-      return (this.data.price / 100).toFixed(2);
+      return (this.data.price / 100).toFixed(this.data.decimalLength);
     },
 
     tipStr() {

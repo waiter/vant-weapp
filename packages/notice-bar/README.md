@@ -3,9 +3,18 @@
 ### 使用指南
 
 在 app.json 或 index.json 中引入组件
+
+es6
 ```json
 "usingComponents": {
   "van-notice-bar": "path/to/vant-weapp/dist/notice-bar/index"
+}
+```
+
+es5
+```json
+"usingComponents": {
+  "van-notice-bar": "path/to/vant-weapp/lib/notice-bar/index"
 }
 ```
 
@@ -56,7 +65,7 @@
 | delay | 动画延迟时间 (s) | `Number` | `1` |
 | speed | 滚动速率 (px/s) | `Number` | `50` |
 | scrollable | 是否在长度溢出时滚动播放 | `Boolean` | `true` |
-| left-icon | 左侧图标图片 URL | `String` | - |
+| left-icon | 左侧图标名称或图片链接，可选值见 Icon 组件 | `String` | - |
 | color | 文本颜色 | `String` | `#ed6a0c` |
 | backgroundColor | 滚动条背景 | `String` | `#fffbe8` |
 | open-type | 微信开放能力 | `String` | `navigate` |
@@ -72,9 +81,3 @@
 | 类名 | 说明 |
 |-----------|-----------|
 | custom-class | 根节点样式类 |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 0.0.1 | feature | 新增组件 |

@@ -18,7 +18,7 @@ function padZero(val: string | number): string {
 
 function times(n: number, iteratee: (index: number) => string): string[] {
   let index = -1;
-  const result = Array(n);
+  const result = Array(n < 0 ? 0 : n);
 
   while (++index < n) {
     result[index] = iteratee(index);
@@ -90,24 +90,30 @@ VantComponent({
   },
 
   watch: {
-    value(val: any) {
+    value: 'updateValue',
+    type: 'updateValue',
+    minDate: 'updateValue',
+    maxDate: 'updateValue',
+    minHour: 'updateValue',
+    maxHour: 'updateValue',
+    minMinute: 'updateValue',
+    maxMinute: 'updateValue'
+  },
+
+  methods: {
+    updateValue() {
       const { data } = this;
-      val = this.correctValue(val);
+      const val = this.correctValue(this.data.value);
       const isEqual = val === data.innerValue;
       if (!isEqual) {
         this.updateColumnValue(val).then(() => {
           this.$emit('input', val);
         });
+      } else {
+        this.updateColumns();
       }
     },
-    type: 'updateColumns',
-    minHour: 'updateColumns',
-    maxHour: 'updateColumns',
-    minMinute: 'updateColumns',
-    maxMinute: 'updateColumns'
-  },
 
-  methods: {
     getPicker() {
       if (this.picker == null) {
         const picker = (this.picker = this.selectComponent(
@@ -135,7 +141,7 @@ VantComponent({
       return this.set({ columns: results });
     },
 
-    getRanges(): object[] {
+    getRanges() {
       const { data } = this;
       if (data.type === 'time') {
         return [
@@ -193,7 +199,7 @@ VantComponent({
       return result;
     },
 
-    correctValue(value) {
+    correctValue(value: any) {
       const { data } = this;
       // validate value
       const isDateType = data.type !== 'time';
@@ -220,7 +226,7 @@ VantComponent({
       return value;
     },
 
-    getBoundary(type: string, innerValue: number): object {
+    getBoundary(type: string, innerValue: number) {
       const value = new Date(innerValue);
       const boundary = new Date(this.data[`${type}Date`]);
       const year = boundary.getFullYear();
@@ -262,11 +268,11 @@ VantComponent({
       this.$emit('cancel');
     },
 
-    onConfirm(): void {
+    onConfirm() {
       this.$emit('confirm', this.data.innerValue);
     },
 
-    onChange(): void {
+    onChange() {
       const { data } = this;
       let value;
 

@@ -2,6 +2,6 @@ page {
   background-color: #fff;
 }
 
-.van-rate {
+.vanx-rate {
   margin-left: 15px;
 }

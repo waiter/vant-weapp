@@ -24,7 +24,9 @@ VantComponent({
       value: 110
     }
   },
-
+  data: {
+    show: false
+  },
   methods: {
     show() {
       const { duration } = this.data;

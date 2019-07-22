@@ -1,5 +1,6 @@
 import { basic } from '../mixins/basic';
 import { observe } from '../mixins/observer/index';
+import { isSwan } from './platform';
 
 function mapKeys(source: object, target: object, map: object) {
   Object.keys(map).forEach(key => {
@@ -35,7 +36,7 @@ function VantComponent<Data, Props, Watch, Methods, Computed>(
   });
 
   const { relation } = vantOptions;
-  if (relation) {
+  if (relation && !isSwan()) {
     options.relations = Object.assign(options.relations || {}, {
       [`../${relation.name}/index`]: relation
     });

@@ -7,6 +7,7 @@
   "description": "轻量、可靠的小程序 UI 组件库",
   "scripts": {
     "dev": "node build/dev.js",
+    "dev:baidu": "sh build/baidu.sh",
     "lint": "eslint ./packages --ext .js",
     "release": "sh build/release.sh",
     "build:lib": "yarn && rm -rf dist && rm -rf lib && NODE_ENV=production node build/compiler.js",

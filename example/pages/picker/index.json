@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "Picker 选择器"
+  "navigationBarTitleText": "Picker 选择器",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "van-picker": "../../dist/picker/index",
+    "van-toast": "../../dist/toast/index"
+  }
 }

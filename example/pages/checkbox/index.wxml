@@ -52,12 +52,13 @@
 </demo-block>
 
 <demo-block title="复选框组">
-  <van-checkbox-group value="{{ result }}" data-key="result" bind:change="onChange">
+  <van-checkbox-group class="group-1" value="{{ result }}" data-key="result" bind:change="onChange">
     <van-checkbox
       wx:for="{{ list }}"
       wx:key="{{ index }}"
       name="{{ item }}"
       custom-class="demo-checkbox"
+      class="group-item-1"
     >
       复选框 {{ item }}
     </van-checkbox>
@@ -65,12 +66,13 @@
 </demo-block>
 
 <demo-block title="设置最大可选数">
-  <van-checkbox-group value="{{ result2 }}" data-key="result2" max="2" bind:change="onChange">
+  <van-checkbox-group class="group-2" value="{{ result2 }}" data-key="result2" max="2" bind:change="onChange">
     <van-checkbox
       wx:for="{{ list }}"
       wx:key="{{ index }}"
       name="{{ item }}"
       custom-class="demo-checkbox"
+      class="group-item-2"
     >
       复选框 {{ item }}
     </van-checkbox>
@@ -78,7 +80,7 @@
 </demo-block>
 
 <demo-block title="搭配单元格组件使用">
-  <van-checkbox-group value="{{ result3 }}" data-key="result3" bind:change="onChange">
+  <van-checkbox-group class="group-3" value="{{ result3 }}" data-key="result3" bind:change="onChange">
     <van-cell-group >
       <van-cell
         wx:for="{{ list }}"
@@ -89,7 +91,7 @@
         data-index="{{ index }}"
         bind:click="toggle"
       >
-        <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item }}" />
+        <van-checkbox catch:tap="noop" class="group-item-3 checkboxes-{{ index }}" name="{{ item }}" />
       </van-cell>
     </van-cell-group>
   </van-checkbox-group>

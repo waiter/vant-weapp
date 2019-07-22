@@ -5,9 +5,14 @@ VantComponent({
     name: 'col',
     type: 'descendant',
     linked(target: Weapp.Component) {
+      this.child.push(target);
       if (this.data.gutter) {
         target.setGutter(this.data.gutter);
       }
+    },
+    unlinked(target: Weapp.Component) {
+      const index = this.child.indexOf(target);
+      this.child.splice(index, 1);
     }
   },
 
@@ -19,6 +24,10 @@ VantComponent({
     gutter: 'setGutter'
   },
 
+  beforeCreate() {
+    this.child = this.child || [];
+  },
+
   mounted() {
     if (this.data.gutter) {
       this.setGutter();
@@ -26,6 +35,13 @@ VantComponent({
   },
 
   methods: {
+    insertChild(children) {
+      this.child = children || [];
+      this.child.forEach(it => {
+        it.setGutter(this.data.gutter);
+      });
+    },
+
     setGutter() {
       const { gutter } = this.data;
       const margin = `-${Number(gutter) / 2}px`;
@@ -33,8 +49,8 @@ VantComponent({
         ? `margin-right: ${margin}; margin-left: ${margin};`
         : '';
 
-      this.set({ style });
-      this.getRelationNodes('../col/index').forEach(col => {
+      this.set({ viewStyle: style });
+      this.child.forEach(col => {
         col.setGutter(this.data.gutter);
       });
     }

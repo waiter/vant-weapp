@@ -6,8 +6,9 @@
     custom-class="tabbar"
     safe-area-inset-bottom="{{ false }}"
     bind:change="onChange"
+    class="group-1"
   >
-    <van-tabbar-item info="3">
+    <van-tabbar-item class="group-item-1" info="3">
       <image
         slot="icon"
         src="{{ icon.normal }}"
@@ -20,8 +21,8 @@
       />
       自定义
     </van-tabbar-item>
-    <van-tabbar-item icon="search">标签</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-1" icon="search">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-1" icon="setting-o">标签</van-tabbar-item>
   </van-tabbar>
 </demo-block>
 
@@ -34,10 +35,11 @@
     active-color="#07c160"
     inactive-color="#000"
     bind:change="onChange"
+    class="group-2"
   >
-    <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-    <van-tabbar-item icon="search">标签</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-2" icon="home-o">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-2" icon="search">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-2" icon="friends-o">标签</van-tabbar-item>
+    <van-tabbar-item class="group-item-2" icon="setting-o">标签</van-tabbar-item>
   </van-tabbar>
 </demo-block>

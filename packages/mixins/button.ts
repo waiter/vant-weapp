@@ -2,7 +2,6 @@ export const button = Behavior({
   externalClasses: ['hover-class'],
 
   properties: {
-    id: String,
     lang: {
       type: String,
       value: 'en'

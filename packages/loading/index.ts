@@ -14,5 +14,8 @@ VantComponent({
       type: String,
       value: '#c9c9c9'
     }
-  }
+  },
+  data: {
+    arr2: [1, 2],
+  },
 });

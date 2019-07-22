@@ -161,7 +161,8 @@ export default [
       },
       {
         path: '/tabbar',
-        title: 'Tabbar 标签栏'
+        title: 'Tabbar 标签栏',
+        isTab: true
       }
     ]
   },

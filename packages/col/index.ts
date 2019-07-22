@@ -12,15 +12,15 @@ VantComponent({
   },
 
   data: {
-    style: ''
+    viewStyle: ''
   },
 
   methods: {
     setGutter(gutter: number) {
       const padding = `${gutter / 2}px`;
       const style = gutter ? `padding-left: ${padding}; padding-right: ${padding};` : '';
-      if (style !== this.data.style) {
-        this.set({ style });
+      if (style !== this.data.viewStyle) {
+        this.set({ viewStyle: style });
       }
     }
   }

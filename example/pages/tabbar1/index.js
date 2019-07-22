@@ -19,5 +19,15 @@ Page({
   onChange(event) {
     const { key } = event.currentTarget.dataset;
     this.setData({ [key]: event.detail });
+  },
+
+  onReady() {
+    if (this.needInsert) {
+      for(let i = 1; i < 3; i++) {
+        const parent = this.selectComponent(`.group-${i}`);
+        const children = this.selectAllComponents(`.group-item-${i}`);
+        parent.insertChild(children);
+      }
+    }
   }
 });

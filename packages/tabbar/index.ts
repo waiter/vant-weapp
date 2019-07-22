@@ -48,10 +48,17 @@ VantComponent({
   },
 
   beforeCreate() {
-    this.children = [];
+    this.children = this.children || [];
   },
 
   methods: {
+    insertChild(children) {
+      this.children = children || [];
+      this.children.forEach(it => {
+        it.parent = this;
+        it.updateFromParent();
+      });
+    },
     updateChildren() {
       const { children } = this;
       if (!Array.isArray(children) || !children.length) {

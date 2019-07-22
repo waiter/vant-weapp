@@ -99,7 +99,7 @@ VantComponent({
   },
 
   beforeCreate() {
-    this.child = [];
+    this.child = this.child || [];
   },
 
   mounted() {
@@ -120,6 +120,15 @@ VantComponent({
   },
 
   methods: {
+    insertChild(children) {
+      this.child = children || [];
+      const tabs = this.child.map(it => {
+        it.parent = this;
+        return it.data;
+      });
+      this.updateTabs(tabs);
+    },
+
     updateTabs(tabs: TabItemData[]) {
       tabs = tabs || this.data.tabs;
       this.set({

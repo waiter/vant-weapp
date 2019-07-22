@@ -1,22 +1,22 @@
 <demo-block title="基础用法">
-  <van-collapse value="{{ active1 }}" data-key="active1" bind:change="onChange">
-    <van-collapse-item title="{{ title1 }}">{{ content1 }}</van-collapse-item>
-    <van-collapse-item title="{{ title2 }}">{{ content2 }}</van-collapse-item>
-    <van-collapse-item title="{{ title3 }}" disabled>{{ content3 }}</van-collapse-item>
+  <van-collapse class="group-1" value="{{ active1 }}" data-key="active1" bind:change="onChange">
+    <van-collapse-item class="group-item-1" title="{{ title1 }}">{{ content1 }}</van-collapse-item>
+    <van-collapse-item class="group-item-1" title="{{ title2 }}">{{ content2 }}</van-collapse-item>
+    <van-collapse-item class="group-item-1" title="{{ title3 }}" disabled>{{ content3 }}</van-collapse-item>
   </van-collapse>
 </demo-block>
 
 <demo-block title="手风琴">
-  <van-collapse value="{{ active2 }}" data-key="active2" accordion bind:change="onChange">
-    <van-collapse-item title="{{ title1 }}">{{ content1 }}</van-collapse-item>
-    <van-collapse-item title="{{ title2 }}">{{ content2 }}</van-collapse-item>
-    <van-collapse-item title="{{ title3 }}">{{ content3 }}</van-collapse-item>
+  <van-collapse class="group-2" value="{{ active2 }}" data-key="active2" accordion bind:change="onChange">
+    <van-collapse-item class="group-item-2" title="{{ title1 }}">{{ content1 }}</van-collapse-item>
+    <van-collapse-item class="group-item-2" title="{{ title2 }}">{{ content2 }}</van-collapse-item>
+    <van-collapse-item class="group-item-2" title="{{ title3 }}">{{ content3 }}</van-collapse-item>
   </van-collapse>
 </demo-block>
 
 <demo-block title="自定义标题内容">
-  <van-collapse value="{{ active3 }}" data-key="active3" bind:change="onChange">
-    <van-collapse-item>
+  <van-collapse class="group-3" value="{{ active3 }}" data-key="active3" bind:change="onChange">
+    <van-collapse-item class="group-item-3">
       <view slot="title">
         {{ title1 }}
         <van-icon name="question-o" custom-class="van-icon-question" />
@@ -27,6 +27,7 @@
       title="{{ title2 }}"
       value="内容"
       icon="shop-o"
+      class="group-item-3"
     >
       {{ content2 }}
     </van-collapse-item>

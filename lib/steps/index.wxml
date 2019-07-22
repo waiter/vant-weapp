@@ -5,7 +5,7 @@
     <view
       wx:for="{{ steps }}"
       wx:key="index"
-      class="{{ utils.bem('step', [direction, status(index, active)]) }} van-hairline"
+      class="{{ utils.bem('step', [direction, status.fn(index, active)]) }} van-hairline"
     >
       <view class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
         <view>{{ item.text }}</view>
@@ -21,15 +21,14 @@
 </view>
 
 <wxs module="status">
-function get(index, active) {
-  if (index < active) {
-    return 'finish';
-  } else if (index === active) {
-    return 'process';
+module.exports = {
+  fn: function (index, active) {
+    if (index < active) {
+      return 'finish';
+    } else if (index === active) {
+      return 'process';
+    }
+    return '';
   }
-
-  return '';
-}
-
-module.exports = get;
+};
 </wxs>

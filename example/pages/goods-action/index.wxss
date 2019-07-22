@@ -1,3 +1,7 @@
-.goods-action {
+.goodsx-action {
   position: relative !important;
+}
+
+.flex-btn {
+  flex: 1;
 }

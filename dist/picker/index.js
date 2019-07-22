@@ -17,8 +17,14 @@ VantComponent({
                 if (Array.isArray(this.children) && this.children.length) {
                     this.setColumns().catch(() => { });
                 }
+                this.setData({
+                    isSimple: this.simple
+                });
             }
         } }),
+    data: {
+        isSimple: false,
+    },
     beforeCreate() {
         this.children = [];
     },

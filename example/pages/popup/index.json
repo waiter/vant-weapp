@@ -1,4 +1,10 @@
 {
   "navigationBarTitleText": "Popup 弹出层",
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "van-button": "../../dist/button/index",
+    "van-nav-bar": "../../dist/nav-bar/index",
+    "van-popup": "../../dist/popup/index"
+  }
 }

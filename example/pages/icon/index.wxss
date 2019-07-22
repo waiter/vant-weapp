@@ -2,7 +2,7 @@ page {
   padding-bottom: 0;
 }
 
-.col {
+.colx {
   text-align: center;
   height: 100px;
   float: none;
@@ -10,7 +10,7 @@ page {
   vertical-align: middle;
 }
 
-.icon {
+.iconx {
   display: block;
   color: #323233;
   margin: 20px 0 10px;

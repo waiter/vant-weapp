@@ -8,10 +8,12 @@
   <van-collapse
     wx:for="{{ list }}"
     wx:for-item="group"
+    wx:for-index="groupIdx"
     wx:key="group.title"
     value="{{ activeNames }}"
     border="{{ false }}"
     bind:change="onChangeCollapse"
+    class="collapse-{{groupIdx}}"
   >
     <van-collapse-item
       clickable
@@ -21,6 +23,7 @@
       content-class="mobile-nav__content"
       title="{{ group.groupName }}"
       name="{{ group.groupName }}"
+      class="collapse-item-{{groupIdx}}"
     >
       <van-icon
         name="{{ group.icon }}"
@@ -33,7 +36,7 @@
         is-link
         url="/pages{{ item.path }}/index"
         data-url="/pages{{ item.path }}/index"
-        data-switch-tab="{{ true }}"
+        data-switch-tab="{{ item.isTab || false }}"
         title="{{ item.title }}"
         bind:click="onClick"
       />

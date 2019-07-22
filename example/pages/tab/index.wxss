@@ -16,10 +16,10 @@ page {
   line-height: 44px !important;
 }
 
-.tab-class {
+.tabx-class {
   transition: all 0.25s ease-in-out;
 }
 
-.tab-active-class {
+.tabx-active-class {
   font-size: 1.05em !important;
 }

@@ -6,7 +6,7 @@
 >
   <view
     class="van-rate__item"
-    wx:for="{{ count }}"
+    wx:for="{{ lenArr }}"
     wx:key="index"
     style="font-size: {{ size}}px;"
   >

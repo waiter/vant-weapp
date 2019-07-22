@@ -24,7 +24,7 @@ VantComponent({
   },
 
   computed: {
-    style() {
+    viewStyle() {
       const color = this.data.color || COLOR_MAP[this.data.type] || DEFAULT_COLOR;
       const key = this.data.plain ? 'color' : 'background-color';
       const style = { [key]: color } as Style;

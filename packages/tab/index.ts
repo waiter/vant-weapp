@@ -3,7 +3,10 @@ import { VantComponent } from '../common/component';
 VantComponent({
   relation: {
     name: 'tabs',
-    type: 'ancestor'
+    type: 'ancestor',
+    linked(parent: Weapp.Component) {
+      this.parent = parent;
+    }
   },
 
   props: {
@@ -31,9 +34,8 @@ VantComponent({
 
   methods: {
     update() {
-      const parent = this.getRelationNodes('../tabs/index')[0];
-      if (parent) {
-        parent.updateTabs();
+      if (this.parent) {
+        this.parent.updateTabs();
       }
     }
   }

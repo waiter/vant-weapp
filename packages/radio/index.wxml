@@ -1,6 +1,13 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
 <view class="van-radio custom-class">
+  <view
+    wx:if="{{ labelPosition === 'left' }}"
+    class=" {{ utils.bem('radio__label', [labelPosition, { disabled }], 'label-class') }}"
+    bindtap="onClickLabel"
+  >
+    <slot />
+  </view>
   <view class="van-radio__icon-wrap" bindtap="onChange">
     <slot wx:if="{{ useIconSlot }}" name="icon" />
     <van-icon
@@ -12,7 +19,11 @@
       custom-style="line-height: 20px;"
     />
   </view>
-  <view class="{{ utils.bem('radio__label', [labelPosition, { disabled }], 'label-class') }}" bindtap="onClickLabel">
+  <view
+    wx:if="{{ labelPosition === 'right' }}"
+    class=" {{ utils.bem('radio__label', [labelPosition, { disabled }], 'label-class') }}"
+    bindtap="onClickLabel"
+  >
     <slot />
   </view>
 </view>

@@ -20,11 +20,11 @@
       thumb="{{ imageURL }}"
     >
       <view slot="tags">
-        <van-tag plain type="danger" custom-class="tag">标签1</van-tag>
+        <van-tag plain type="danger" custom-class="xtag">标签1</van-tag>
         <van-tag plain type="danger">标签2</van-tag>
       </view>
-      <view slot="footer" class="van-card__footer">
-        <van-button size="mini" round custom-class="button">按钮</van-button>
+      <view slot="footer" class="vanx-card__footer">
+        <van-button size="mini" round custom-class="xbutton">按钮</van-button>
         <van-button size="mini" round>按钮</van-button>
       </view>
     </van-card>

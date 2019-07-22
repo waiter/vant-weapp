@@ -3,11 +3,11 @@
   background-color: #fff;
 }
 
-.tag,
-.button {
+.xtag,
+.xbutton {
   margin-right: 5px;
 }
 
-.van-card__footer {
+.vanx-card__footer {
   margin-top: 5px;
 }

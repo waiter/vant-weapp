@@ -12,7 +12,7 @@
       custom-style="line-height: 20px;"
     />
   </view>
-  <view class="label-class {{ utils.bem('checkbox__label', [labelPosition, { disabled }]) }}" bindtap="onClickLabel">
+  <view class="{{ utils.bem('checkbox__label', [labelPosition, { disabled }], 'label-class') }}" bindtap="onClickLabel">
     <slot />
   </view>
 </view>

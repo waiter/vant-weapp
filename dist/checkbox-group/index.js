@@ -25,6 +25,13 @@ VantComponent({
         }
     },
     methods: {
+        insertChild(children) {
+            this.children = children || [];
+            this.children.forEach(it => {
+                it.parent = this;
+                this.updateChild(it);
+            });
+        },
         updateChildren() {
             (this.children || []).forEach((child) => this.updateChild(child));
         },

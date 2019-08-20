@@ -72,6 +72,12 @@ allFile.wxs.forEach(it => {
     data = data.replace(/module\.exports =/, 'export default')
     isNeedSave = true;
   }
+  // 替换全部样式中的 __ ，有风险，但是不替换容易各自样式异常
+  if (/__/.test(data)) {
+    console.log(`wxs 中存在 __: ${it}`);
+    data = data.replace(/__/g, '_-_');
+    isNeedSave = true;
+  }
   if (isNeedSave) {
     fs.writeFileSync(it, data);
   }
@@ -114,7 +120,7 @@ allFile.swan.forEach(it => {
 
   // 替换全部样式中的 __ ，有风险，但是不替换容易各自样式异常
   if (/__/.test(data)) {
-    data = data.replace(/__/g, '___');
+    data = data.replace(/__/g, '_-_');
     isNeedSave = true;
   }
 
@@ -129,7 +135,7 @@ allFile.css.forEach(it => {
 
   // 替换全部样式中的 __ ，有风险，但是不替换容易各自样式异常
   if (/__/.test(data)) {
-    data = data.replace(/__/g, '___');
+    data = data.replace(/__/g, '_-_');
     isNeedSave = true;
   }
 
@@ -143,8 +149,9 @@ allFile.js.forEach(it => {
   let data = fs.readFileSync(it, 'utf-8');
 
   // 替换全部样式中的 __ ，有风险，但是不替换容易各自样式异常
-  if (/__/.test(data)) {
-    data = data.replace(/__/g, '___');
+  if (/[a-z]__[a-z]/.test(data)) {
+    console.log(`js 中存在 __: ${it}`);
+    data = data.replace(/([a-z])__([a-z])/g, '$1_-_$2');
     isNeedSave = true;
   }
 

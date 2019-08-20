@@ -46,6 +46,13 @@ VantComponent({
             }
         }
     },
+    computed: {
+        lenArr() {
+            return Array.from({
+                length: this.data.count,
+            });
+        },
+    },
     methods: {
         onSelect(event) {
             const { data } = this;

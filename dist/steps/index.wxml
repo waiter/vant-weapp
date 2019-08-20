@@ -1,11 +1,11 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
-<view class="custom-class {{ utils.bem('steps', [direction]) }}">
+<view class="{{ utils.bem('steps', [direction], 'custom-class') }}">
   <view class="van-step__wrapper">
     <view
       wx:for="{{ steps }}"
       wx:key="index"
-      class="{{ utils.bem('step', [direction, status.fn(index, active)]) }} van-hairline"
+      class="van-hairline van-step van-step--{{ direction }} {{ index < active ? 'van-step--finish' : ''}} {{ index == active ? 'van-step--process' : ''}}"
     >
       <view class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
         <view>{{ item.text }}</view>
@@ -19,16 +19,3 @@
     </view>
   </view>
 </view>
-
-<wxs module="status">
-module.exports = {
-  fn: function (index, active) {
-    if (index < active) {
-      return 'finish';
-    } else if (index === active) {
-      return 'process';
-    }
-    return '';
-  }
-};
-</wxs>

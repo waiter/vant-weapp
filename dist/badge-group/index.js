@@ -20,10 +20,20 @@ VantComponent({
         }
     },
     beforeCreate() {
-        this.badges = [];
-        this.currentActive = -1;
+        // fuck bd ide lifetime
+        this.badges = this.badges || [];
+        if (typeof this.currentActive === 'undefined') {
+            this.currentActive = -1;
+        }
     },
     methods: {
+        insertChild(children) {
+            this.badges = children || [];
+            this.badges.forEach(it => {
+                it.parent = this;
+            });
+            this.setActive(this.data.active);
+        },
         setActive(active) {
             const { badges, currentActive } = this;
             if (!badges.length) {

@@ -3,7 +3,7 @@
 <view class="van-radio custom-class">
   <view
     wx:if="{{ labelPosition === 'left' }}"
-    class="label-class {{ utils.bem('radio__label', [labelPosition, { disabled }]) }}"
+    class=" {{ utils.bem('radio__label', [labelPosition, { disabled }], 'label-class') }}"
     bindtap="onClickLabel"
   >
     <slot />
@@ -21,7 +21,7 @@
   </view>
   <view
     wx:if="{{ labelPosition === 'right' }}"
-    class="label-class {{ utils.bem('radio__label', [labelPosition, { disabled }]) }}"
+    class=" {{ utils.bem('radio__label', [labelPosition, { disabled }], 'label-class') }}"
     bindtap="onClickLabel"
   >
     <slot />

@@ -25,9 +25,15 @@ VantComponent({
         }
     },
     beforeCreate() {
-        this.children = [];
+        this.children = this.children || [];
     },
     methods: {
+        insertChild(children) {
+            this.children = children || [];
+            this.children.forEach(it => {
+                it.parent = this;
+            });
+        },
         updateExpanded() {
             this.children.forEach((child) => {
                 child.updateExpanded();

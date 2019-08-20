@@ -1,6 +1,5 @@
 <van-button
   square
-  id="{{ id }}"
   size="large"
   lang="{{ lang }}"
   type="{{ type }}"

@@ -44,6 +44,10 @@ function isPrimitive(value) {
 
 // mock simple fn.call in wxs
 function call(fn, args) {
+  if (args.length === 3) {
+    return fn(args[0], args[1], args[2]);
+  }
+
   if (args.length === 2) {
     return fn(args[0], args[1]);
   }
@@ -86,7 +90,7 @@ function join(name, mods) {
   mods = mods.map(function(mod) {
     return name + '--' + mod;
   });
-  mods.unshift(name);
+  mods.unshift(name, name + '__' + name);
   return mods.join(' ');
 }
 
@@ -108,14 +112,18 @@ function traversing(mods, conf) {
   }
 }
 
-function bem(name, conf) {
+function bem(name, conf, more) {
   var mods = [];
   traversing(mods, conf);
-  return join(name, mods);
+  var result = join(name, mods);
+  if (more) {
+    result += ' ' + more;
+  }
+  return result;
 }
 
 module.exports = {
-  bem: function(name, conf) {
-    return memoize(bem)(name, conf);
+  bem: function(name, conf, more) {
+    return memoize(bem)(name, conf, more);
   }
 };

@@ -83,7 +83,7 @@ VantComponent({
         offsetTop: 'setWrapStyle'
     },
     beforeCreate() {
-        this.child = [];
+        this.child = this.child || [];
     },
     mounted() {
         this.setLine(true);
@@ -98,6 +98,14 @@ VantComponent({
         this.createIntersectionObserver().disconnect();
     },
     methods: {
+        insertChild(children) {
+            this.child = children || [];
+            const tabs = this.child.map(it => {
+                it.parent = this;
+                return it.data;
+            });
+            this.updateTabs(tabs);
+        },
         updateTabs(tabs) {
             tabs = tabs || this.data.tabs;
             this.set({

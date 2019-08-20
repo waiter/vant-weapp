@@ -15,7 +15,7 @@ VantComponent({
     },
     watch: {
         value(value) {
-            this.code = value;
+            this.code = value ? `${value}` : '';
             this.setValues();
         },
         areaList: 'setValues',
@@ -31,7 +31,7 @@ VantComponent({
     methods: {
         getPicker() {
             if (this.picker == null) {
-                this.picker = this.selectComponent('.van-area__picker');
+                this.picker = this.selectComponent('.van-area---picker');
             }
             return this.picker;
         },

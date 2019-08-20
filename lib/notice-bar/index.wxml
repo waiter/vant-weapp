@@ -2,7 +2,7 @@
 
 <view
   wx:if="{{ show }}"
-  class="custom-class {{ utils.bem('notice-bar', { withicon: mode, wrapable }) }}"
+  class="{{ utils.bem('notice-bar', { withicon: mode, wrapable }, 'custom-class') }}"
   style="color: {{ color }}; background-color: {{ backgroundColor }};"
   bind:tap="onClick"
 >

@@ -2,7 +2,10 @@ import { VantComponent } from '../common/component';
 VantComponent({
     relation: {
         name: 'tabs',
-        type: 'ancestor'
+        type: 'ancestor',
+        linked(parent) {
+            this.parent = parent;
+        }
     },
     props: {
         dot: Boolean,
@@ -26,9 +29,8 @@ VantComponent({
     },
     methods: {
         update() {
-            const parent = this.getRelationNodes('../tabs/index')[0];
-            if (parent) {
-                parent.updateTabs();
+            if (this.parent) {
+                this.parent.updateTabs();
             }
         }
     }

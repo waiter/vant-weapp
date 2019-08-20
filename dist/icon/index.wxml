@@ -1,16 +1,6 @@
-<wxs module="utils" >
-  module.exports = {
-    isSrc: function (url, trueValue, falseValue) {
-      if (url.indexOf('http') === 0 || url.indexOf('data:image') === 0 || url.indexOf('//') === 0) {
-        return trueValue
-      }
-      return falseValue;
-    }
-  }
-</wxs>
 
 <view
-  class="custom-class {{ classPrefix }} {{ utils.isSrc(name, 'van-icon--image', classPrefix + '-' + name) }}"
+  class="custom-class {{ classPrefix }} {{ isSrc ? 'van-icon--image' : classPrefix + '-' + name }}"
   style="{{ color ? 'color: ' + color + ';' : '' }}{{ size ? 'font-size: ' + size + ';' : '' }}{{ customStyle }}"
   bind:tap="onClick"
 >
@@ -20,7 +10,7 @@
     custom-class="van-icon__info"
   />
   <image
-    wx:if="{{ utils.isSrc(name, true, false) }}"
+    wx:if="{{ isSrc }}"
     src="{{ name }}"
     class="van-icon__image"
   />

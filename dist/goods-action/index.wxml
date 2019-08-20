@@ -1,5 +1,5 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
-<view class="custom-class {{ utils.bem('goods-action', { safe: isIPhoneX && safeAreaInsetBottom }) }}">
+<view class="{{ utils.bem('goods-action', { safe: isIPhoneX && safeAreaInsetBottom }, 'custom-class') }}">
   <slot />
 </view>

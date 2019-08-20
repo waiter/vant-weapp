@@ -1,8 +1,8 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
 <view
-  class="custom-class {{ utils.bem('tag', [size, { mark, plain, round }]) }} {{ plain ? 'van-hairline--surround' : '' }}"
-  style="{{ style }}"
+  class=" {{ utils.bem('tag', [size, { mark, plain, round }], plain ? 'custom-class van-hairline--surround' : 'custom-class') }}"
+  style="{{ viewStyle }}"
 >
   <slot />
 </view>

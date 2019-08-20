@@ -13,20 +13,14 @@ VantComponent({
             value: [],
             observer(columns = []) {
                 this.simple = columns.length && !columns[0].values;
-                this.children = this.selectAllComponents('.van-picker__column');
+                this.children = this.selectAllComponents('.van-picker---column') || [];
                 if (Array.isArray(this.children) && this.children.length) {
                     this.setColumns().catch(() => { });
                 }
-                this.setData({
-                    isSimple: this.simple
-                });
             }
         } }),
-    data: {
-        isSimple: false,
-    },
     beforeCreate() {
-        this.children = [];
+        this.children = this.children || [];
     },
     methods: {
         noop() { },

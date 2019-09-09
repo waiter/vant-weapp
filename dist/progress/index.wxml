@@ -6,7 +6,7 @@
     style="width: {{ percentage }}%; background: {{ inactive ? '#cacaca' : color }}"
   >
     <view
-      wx:if="{{ showPivot && getters.text(pivotText, percentage) }}"
+      wx:if="{{ showPivot }}"
       style="color: {{ textColor }}; background: {{ pivotColor ? pivotColor : inactive ? '#cacaca' : color }}"
       class="van-progress__pivot"
     >

@@ -11,9 +11,9 @@
     clickable="{{ clickable }}"
     border="{{ border && expanded }}"
     class="{{ utils.bem('collapse-item__title', { disabled, expanded }) }}"
-    right-icon-class="van-cell__right-icon"
+    right-icon-class="vant-cell__right-icon"
     custom-class="vant-cell"
-    hover-class="van-cell--hover"
+    hover-class="vant-cell--hover"
     bind:click="onClick"
   >
     <slot

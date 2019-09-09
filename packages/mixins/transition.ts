@@ -9,15 +9,17 @@ const getClassNames = (name: string) => ({
 
 const nextTick = () => new Promise(resolve => setTimeout(resolve, 1000 / 30));
 
-export const transition = function(showDefaultValue: boolean) {
+export const transition = function (showDefaultValue: boolean) {
   return Behavior({
     properties: {
       customStyle: String,
+      // @ts-ignore
       show: {
         type: Boolean,
         value: showDefaultValue,
         observer: 'observeShow'
       },
+      // @ts-ignore
       duration: {
         type: [Number, Object],
         value: 300,
@@ -53,7 +55,7 @@ export const transition = function(showDefaultValue: boolean) {
       enter() {
         const { duration, name } = this.data;
         const classNames = getClassNames(name);
-        const currentDuration = isObj(duration) ? duration.leave : duration;
+        const currentDuration = isObj(duration) ? duration.enter : duration;
 
         this.status = 'enter';
 

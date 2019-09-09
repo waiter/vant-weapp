@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+import { Weapp } from 'definitions/weapp';
 
 const ITEM_HEIGHT = 44;
 
@@ -19,7 +20,7 @@ VantComponent({
       value: 0
     },
     activeId: {
-      type: [Number, String]
+      type: [Number, String, Array]
     },
     maxHeight: {
       type: Number,

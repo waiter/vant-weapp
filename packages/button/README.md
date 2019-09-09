@@ -59,6 +59,16 @@
 <van-button loading type="danger" loading-text="加载中..." />
 ```
 
+### 图标按钮
+
+通过`icon`属性设置按钮图标，支持 Icon 组件里的所有图标，也可以传入图标 URL
+
+```html 
+<van-button icon="star-o" type="primary" />
+<van-button icon="star-o" type="primary">按钮</van-button>
+<van-button icon="https://img.yzcdn.cn/vant/logo.png" type="danger">按钮</van-button>
+```
+
 ### 按钮形状
 
 ```html
@@ -67,13 +77,23 @@
 ```
 
 ### 按钮尺寸
+
 支持`large`、`normal`、`small`、`mini`四种尺寸，默认为`normal`
 
 ```html
-<van-button size="large">大号按钮</van-button>
-<van-button size="normal">普通按钮</van-button>
-<van-button size="small">小型按钮</van-button>
-<van-button size="mini">迷你按钮</van-button>
+<van-button type="primary" size="large">大号按钮</van-button>
+<van-button type="primary" size="normal">普通按钮</van-button>
+<van-button type="primary" size="small">小型按钮</van-button>
+<van-button type="primary" size="mini">迷你按钮</van-button>
+```
+
+### 自定义颜色
+
+通过`color`属性可以自定义按钮的颜色
+
+```html
+<van-button color="#7232dd">自定义颜色</van-button>
+<van-button color="#7232dd" plain>自定义颜色</van-button>
 ```
 
 ### Props
@@ -83,6 +103,7 @@
 | id | 标识符 | `String` | - |
 | type | 按钮类型，可选值为 `primary` `info` `warning` `danger` | `String` | `default` |
 | size | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | `String` | `normal` |
+| icon | 左侧图标名称或图片链接，可选值见 Icon 组件 | `String` | - |
 | plain | 是否为朴素按钮 | `Boolean` | `false` |
 | block | 是否为块级元素 | `Boolean` | `false` |
 | round | 是否为圆形按钮 | `Boolean` | `false` |
@@ -106,12 +127,14 @@
 
 | 事件名 | 说明 | 参数 |
 |-----------|-----------|-----------|
-| bind:click | 点击按钮且按钮状态不为加载或禁用时触发 | - |
+| bind:click | 点击按钮，且按钮状态不为加载或禁用时触发 | - |
 | bind:getuserinfo | 用户点击该按钮时，会返回获取到的用户信息，<br>从返回参数的 detail 中获取到的值同 wx.getUserInfo | - |
 | bind:contact | 客服消息回调 | - |
 | bind:getphonenumber | 获取用户手机号回调 | - |
 | bind:error | 当使用开放能力时，发生错误的回调 | - |
 | bind:opensetting | 在打开授权设置页后回调 | - |
+
+> Button 提供的是 click 事件而不是原生 tap 事件，按钮禁用时，click 事件不会触发，tap 事件依然会触发。
 
 ### 外部样式类
 

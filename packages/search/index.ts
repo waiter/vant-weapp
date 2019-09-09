@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+import { Weapp } from 'definitions/weapp';
 
 VantComponent({
   field: true,
@@ -6,6 +7,7 @@ VantComponent({
   classes: ['field-class', 'input-class', 'cancel-class'],
 
   props: {
+    label: String,
     focus: Boolean,
     error: Boolean,
     disabled: Boolean,
@@ -27,7 +29,10 @@ VantComponent({
       type: String,
       value: 'square'
     },
-    label: String
+    clearable: {
+      type: Boolean,
+      value: true
+    }
   },
 
   methods: {
@@ -37,9 +42,15 @@ VantComponent({
     },
 
     onCancel() {
-      this.set({ value: '' });
-      this.$emit('cancel');
-      this.$emit('change', '');
+      /**
+       * 修复修改输入框值时，输入框失焦和赋值同时触发，赋值失效
+       * // https://github.com/youzan/vant-weapp/issues/1768
+       */
+      setTimeout(() => {
+        this.set({ value: '' });
+        this.$emit('cancel');
+        this.$emit('change', '');
+      }, 200);
     },
 
     onSearch() {

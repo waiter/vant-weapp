@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { pickerProps } from '../picker/shared';
+import { Weapp } from 'definitions/weapp';
 
 type AreaItem = {
   name: string;
@@ -43,7 +44,9 @@ VantComponent({
   },
 
   mounted() {
-    this.setValues();
+    setTimeout(()=>{
+      this.setValues()
+    }, 0)
   },
 
   methods: {

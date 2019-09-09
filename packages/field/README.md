@@ -155,6 +155,7 @@ Page({
 | maxlength | 最大输入长度，设置为 -1 的时候不限制最大长度 | `Number` | `-1` |
 | placeholder | 输入框为空时占位符 | `String` | - |
 | placeholder-style | 指定 placeholder 的样式 | `String` | - |
+| custom-style | 自定义样式 | `String` | - |
 | is-link | 是否展示右侧箭头并开启点击反馈 | `Boolean` | `false` |
 | error | 是否将输入内容标红 | `Boolean` | `false` |
 | error-message | 底部错误提示文案，为空时不展示 | `String` | `''` |
@@ -168,6 +169,8 @@ Page({
 | cursor-spacing | 输入框聚焦时底部与键盘的距离 | `Number` | `50` |
 | adjust-position | 键盘弹起时，是否自动上推页面 | `Boolean` | `true` |
 | show-confirm-bar | 是否显示键盘上方带有”完成“按钮那一栏，只对 textarea 有效 | `Boolean` | `true` |
+| selection-start | 光标起始位置，自动聚集时有效，需与 selection-end 搭配使用 | `Number` | `-1` |
+| selection-end | 光标结束位置，自动聚集时有效，需与 selection-start 搭配使用 | `Number` | `-1` |
 
 ### Events
 

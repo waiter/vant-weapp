@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+import { Weapp } from 'definitions/weapp';
 
 VantComponent({
   field: true,
@@ -24,7 +25,6 @@ VantComponent({
     iconClass: String,
     clearable: Boolean,
     inputAlign: String,
-    customClass: String,
     customStyle: String,
     confirmType: String,
     confirmHold: Boolean,
@@ -32,6 +32,14 @@ VantComponent({
     placeholder: String,
     placeholderStyle: String,
     errorMessageAlign: String,
+    selectionEnd: {
+      type: Number,
+      value: -1
+    },
+    selectionStart: {
+      type: Number,
+      value: -1
+    },
     showConfirmBar: {
       type: Boolean,
       value: true
